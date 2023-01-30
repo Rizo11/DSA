@@ -10,8 +10,8 @@ int main() {
 	int size = 15;
 	int pa[size];
 	
-	int t[6] = {123, 678, 789, 678, 789, 567};
-	insertionSort(t, 6);
+	int t[6] = {123, 1, 789, 678, 789, 567};
+	selectionSort(t, 6);
 	print_arr(t, 6);
 }
 
@@ -69,35 +69,19 @@ void insertionSort(int* arr, int size) {
 }
 
 void selectionSort(int* arr, int size) {
-	// int n = 10;
-	// int arr[n] = {0};
-	// srand(time(0));
-	// int random = (rand() % 9);
-	// for(int i = 0; i < n; i++) {
-    //             arr[i] =  (rand() % 10);
-    //     }
-	// for(int j = 0; j < n; j++){
-    //             cout<<arr[j]<< " ";
-    //     }
 
-    //     cout << endl;
-	// for(int i = 0; i < n - 1; i++) {
-	// 	int current = i;
-	// 	for (int j = i + 1; j < n; j++) {
-	// 		if(arr[current] > arr[j]) {
-	// 			current = j;
-	// 		}
-	// 	}
-	// 	int tmp = arr[i];
-	// 	arr[i] = arr[current];
-	// 	arr[current] = tmp;
+	for(int i = 0; i < size - 1; i++) {
+		int current = i;
+		for (int j = i + 1; j < size; j++) {
+			if(*(arr + current) < *(arr + j)) {
+				current = j;
+			}
+		}
+		int tmp = *(arr + i);
+		*(arr + i) = *(arr + current);
+		*(arr + current) = tmp;
 
-	// }
-	// for(int j = 0; j < n; j++){
-    //             cout<<arr[j]<< " ";
-    //     }
-
-    //     cout << endl;
+	}
 
 
 }
